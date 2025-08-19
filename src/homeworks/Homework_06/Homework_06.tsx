@@ -16,7 +16,7 @@ const cars = [
 
 import { type Car } from "./types";
 import {v4} from "uuid";
-import "./styles.css";
+import "./styles.ts";
 
 const cars: Car[] = [
   { brand: "BMW", price: 20000, isDiesel: true },

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Feedback from "components/Feedback/Feedback";
 import { type HomeworkState } from "homeworks/Homework_07/types";
-import "./styles.css";
+import "./styles.ts";
 
 function Homework_07() {
   const [state, setState] = useState<HomeworkState>({ like: 0, dislike: 0 });

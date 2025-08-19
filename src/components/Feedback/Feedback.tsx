@@ -2,7 +2,7 @@ import Button from "components/Button/Button";
 
 import { type FeedbackProps } from "components/Feedback/types";
 
-import "./styles.css";
+import "./styles.ts";
 
 function Feedback({ onLike, onDislike, resetResults, like, dislike}: FeedbackProps) {
   return (

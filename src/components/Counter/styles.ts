@@ -1,4 +1,7 @@
-.counter_wrapper {
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+
+export const Counter_wrapperStyles = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,13 +13,13 @@
   color: black;
   padding: 20px;
   border-radius: 10px;
-}
+`;
 
-.button_control {
+export const ButtonControl = styled.div`
   width: 100px;
-}
+`;
 
-.count {
+export const Count = styled.p`
   font-size: 40px;
   font-weight: bold;
-}
+`;

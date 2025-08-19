@@ -1,4 +1,7 @@
-.feedback-wrapper {
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+
+export const Feedback_wrapperStyles = css`
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -13,34 +16,38 @@
   background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(38, 38, 123));
   color: white;
   box-shadow: 0 0 50px rgb(195, 206, 248);
-}
+`;
 
-.feedback-control {
+export const FeedbackWrapper = styled.div`
+  ${Feedback_wrapperStyles}
+`;
+
+export const FeedbackControl = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
   width: 100%;
-}
+`;
 
-.buttonwithcount-container {
+export const ButtonWithCountContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-}
+`;
 
-.count {
+export const Count = styled.p`
   font-size: 40px;
   color: white;
-}
+`;
 
-.image {
+export const Image = styled.img`
   width: 100%;
   height: 100%;
-}
+`;
 
-.image-control {
+export const ImageControl = styled.div`
   width: 70px;
   height: 70px;
   cursor: pointer;
-}
+`;
