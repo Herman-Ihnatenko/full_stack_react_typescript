@@ -7,7 +7,7 @@ interface Joke {
   punchline: string;
 }
 
-const Homework_09 = () => {
+function Homework_09() {
   const [joke, setJoke] = useState<Joke | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,14 +41,13 @@ const Homework_09 = () => {
           </>
         ) : (
           <MainText>{error}</MainText>
-        )
-        }
+        )}
         <ButtonControl>
           <Button name="Get new joke" onClick={handleButtonClick} />
         </ButtonControl>
       </Card>
     </PageWrapper>
   );
-};
+}
 
 export default Homework_09;
