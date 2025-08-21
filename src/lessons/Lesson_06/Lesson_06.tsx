@@ -1,4 +1,4 @@
-import "./styles.css";
+import { PageWrapper } from "./styles";
 
 function Lesson_06() {
   // 1 тип: string - строковый
@@ -154,10 +154,10 @@ function Lesson_06() {
   };
 
   return (
-    <div className="lesson_06_page_wrapper">
+    <PageWrapper>
       Lesson 06
       {userFullName}
-    </div>
+    </PageWrapper>
   );
 }
 

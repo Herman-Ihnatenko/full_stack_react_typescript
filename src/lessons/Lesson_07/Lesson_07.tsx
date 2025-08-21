@@ -1,4 +1,4 @@
-import "./styles.css";
+import { PageWrapper } from "./styles";
 import { WEATHER_CODES } from "./types";
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
@@ -112,7 +112,7 @@ function Lesson_07() {
   };
 
   return (
-    <div className="lesson_07_page_wrapper">
+    <PageWrapper>
       <Button name="Send" onClick={sendDataToServer} />
       <Input
         id="test-id"
@@ -121,7 +121,7 @@ function Lesson_07() {
         placeholder="Test placeholder"
       />
       <Counter onMinus={onMinus} onPlus={onPlus} count={count} />
-    </div>
+    </PageWrapper>
   );
 }
 

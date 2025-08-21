@@ -1,7 +1,8 @@
-.feedback-wrapper {
+import styled from "@emotion/styled";
+
+export const FeedbackWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-self: center;
   align-items: center;
   justify-content: center;
   gap: 30px;
@@ -10,37 +11,25 @@
   border: 1px solid white;
   border-radius: 10px;
   padding: 30px;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(38, 38, 123));
+  background-color: rgb(26, 35, 53);
   color: white;
-  box-shadow: 0 0 50px rgb(195, 206, 248);
-}
+`;
 
-.feedback-control {
+export const FeedbackControl = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
   width: 100%;
-}
+`;
 
-.buttonwithcount-container {
+export const ButtonwithcountContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-}
+`;
 
-.count {
+export const Count = styled.p`
   font-size: 40px;
   color: white;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-}
-
-.image-control {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-}
+`;

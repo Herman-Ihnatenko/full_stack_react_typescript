@@ -1,0 +1,29 @@
+import styled from "@emotion/styled";
+
+export const PageWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 80px;
+  padding: 80px;
+  background-color: rgb(5, 5, 62);
+`;
+
+export const CarCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  min-height: 150px;
+  max-height: fit-content;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 40px;
+  background-color: white;
+`;
+
+export const CardInfo = styled.p`
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+`;
