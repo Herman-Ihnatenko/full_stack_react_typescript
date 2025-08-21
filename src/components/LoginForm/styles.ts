@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 export const LoginFormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -11,14 +12,15 @@ export const LoginFormContainer = styled.form`
   background-color: white;
   gap: 30px;
 `;
+
 export const Title = styled.p`
   color: #000000;
   font-size: 24px;
   font-weight: normal;
 `;
+
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
 `;
-

@@ -1,30 +1,36 @@
-import { type FormEvent, useState, type ChangeEvent } from "react";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import { LoginFormContainer, InputsContainer, Title } from "./styles";
-function LoginForm() {
-    const CAT_FACT_URL = "https://catfact.ninja/fact";
-  // const [inputValue, setInputValue] = useState<String>("");
+import { type FormEvent, type ChangeEvent, useState } from "react";
 
-  // const changeInputValue = (event) => {
-  //   console.log(event.target.value);
-  //   console.log("onChange event");
+import Button from "components/Button/Button";
+import Input from "components/Input/Input";
+
+import { LoginFormContainer, InputsContainer, Title } from "./styles";
+
+function LoginForm() {
+  // Пример работы с контролируемыми элементами на странице
+  // const [inputValue, setInputValue] = useState<string>("");
+
+  // const changeInputValue = (event: ChangeEvent<HTMLInputElement>) => {
+  //   // event.taget.value - это то, что ввел пользователь с клавиатуры в input элементе
   //   setInputValue(event.target.value);
   // };
 
   const [email, setEmail] = useState<string>("");
-  const [passward, setPassword] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const changeEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
+
   const changePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
   const login = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Login started");
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
+
   return (
     <LoginFormContainer onSubmit={login}>
       <Title>Login form</Title>
@@ -35,6 +41,8 @@ function LoginForm() {
           type="email"
           placeholder="Enter your email"
           label="Email"
+          value={email}
+          onChange={changeEmail}
         />
         <Input
           id="password-id"
@@ -42,11 +50,14 @@ function LoginForm() {
           type="password"
           placeholder="Enter your password"
           label="Password"
+          value={password}
+          onChange={changePassword}
         />
       </InputsContainer>
-      <input value={inputValue} onChange={changeInputValue} />
+      {/* <input value={inputValue} onChange={changeInputValue} /> */}
       <Button name="Login" type="submit" />
     </LoginFormContainer>
   );
 }
+
 export default LoginForm;
