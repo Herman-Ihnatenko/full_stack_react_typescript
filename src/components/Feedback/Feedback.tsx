@@ -1,24 +1,35 @@
 import Button from "components/Button/Button";
 
-import { type FeedbackProps } from "components/Feedback/types";
+import { type FeedbackProps } from "./types";
+import {
+  FeedbackWrapper,
+  FeedbackControl,
+  Count,
+  ButtonwithcountContainer,
+} from "./styles";
 
-import "./styles.ts";
+function Feedback({
+  like,
+  dislike,
+  onDislike,
+  onLike,
+  resetResults,
+}: FeedbackProps) {
 
-function Feedback({ onLike, onDislike, resetResults, like, dislike}: FeedbackProps) {
   return (
-    <div className="feedback-wrapper">
-      <div className="feedback-control">
-        <div className="buttonwithcount-container">
+    <FeedbackWrapper>
+      <FeedbackControl>
+        <ButtonwithcountContainer>
           <Button name="Like" onClick={onLike} />
-          <p className="count">{like}</p>
-        </div>
-        <div className="buttonwithcount-container">
+          <Count>{like}</Count>
+        </ButtonwithcountContainer>
+        <ButtonwithcountContainer>
           <Button name="Dislike" onClick={onDislike} />
-          <p className="count">{dislike}</p>
-        </div>
-      </div>
+          <Count>{dislike}</Count>
+        </ButtonwithcountContainer>
+      </FeedbackControl>
       <Button name="Reset Results" onClick={resetResults} />
-    </div>
+    </FeedbackWrapper>
   );
 }
 

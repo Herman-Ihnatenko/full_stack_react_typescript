@@ -1,39 +1,30 @@
-import { css } from "@emotion/react";
+
 import styled from "@emotion/styled";
 
-export const homework_06_page_wrapperStyles = css`
+export const PageWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   flex: 1;
-  background-color: aquamarine;
-`;
-
-export const Homework_06PageWrapper = styled.div`
-  ${homework_06_page_wrapperStyles}
+  gap: 80px;
+  padding: 80px;
+  background-color: rgb(5, 5, 62);
 `;
 
 export const CarCard = styled.div`
-  font-family: monospace;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  padding: 20px;
-  gap: 15px;
-  border: 1px solid rgb(249, 195, 129);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(245, 151, 37);
-  width: 200px;
-  min-height: 200px;
+  gap: 20px;
+  width: 300px;
+  min-height: 150px;
   max-height: fit-content;
-  background-color: bisque;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 40px;
+  background-color: white;
+`;
 
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgb(255, 140, 0);
-    background-color: rgb(255, 209, 153);
-    cursor: pointer;
-  }
+export const CardInfo = styled.p`
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
 `;

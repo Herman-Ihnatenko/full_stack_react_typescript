@@ -1,4 +1,6 @@
-import styled from '@emotion/styled';
+
+import { InputWrapper, InputLabel, InputComponent, ErrorText } from "./styles";
+
 
 const InputContainer = styled.input`
   padding: 10px;
@@ -9,36 +11,34 @@ const InputContainer = styled.input`
   font-size: 16px;
   font-family: Arial, sans-serif;
 
-  &:disabled {
-    background-color: #f0f0f0;
-    color: #666;
-    cursor: not-allowed;
-  }
 
-  &:focus {
-    outline: none;
-    border-color: #aaa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  ${props => props.error`
-    border-color: #f00;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-  `}
-`;
-
-interface InputProps {
-  disabled?: boolean;
-  error?: string;
-}
-
-const Input: React.FC<InputProps> = ({ disabled, error, ...props }) => {
+function Input({
+  id,
+  name,
+  type = "text",
+  placeholder,
+  label,
+  disabled = false,
+  error = undefined,
+  value,
+  onChange,
+}: InputProps) {
   return (
-    <InputContainer
-      disabled={disabled}
-      error={error}
-      {...props}
-    />
+    <InputWrapper>
+      <InputLabel htmlFor={id}>{label}</InputLabel>
+      <InputComponent
+        disabled={disabled}
+        $error={error}
+        id={id}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+      {!!error && <ErrorText>{error}</ErrorText>}
+    </InputWrapper>
+
   );
 };
 

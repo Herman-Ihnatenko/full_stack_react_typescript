@@ -1,7 +1,8 @@
-import { css } from "@emotion/react";
+
 import styled from "@emotion/styled";
 
-export const Counter_wrapperStyles = css`
+export const CounterWrapper = styled.div`
+
   display: flex;
   align-items: center;
   justify-content: center;
