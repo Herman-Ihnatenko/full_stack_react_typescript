@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.ts";
 
 function Lesson_06() {
   // 1 тип: string - строковый
