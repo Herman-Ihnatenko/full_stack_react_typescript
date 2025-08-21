@@ -45,9 +45,11 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 10px;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 
   &:hover {
+  transform: scale(1.05);
     background-color: ${({ $isRed, disabled }) =>
       generateButtonColorOnHover($isRed, disabled)};
   }
