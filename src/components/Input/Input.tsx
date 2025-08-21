@@ -1,6 +1,16 @@
+
 import { InputWrapper, InputLabel, InputComponent, ErrorText } from "./styles";
 
-import { type InputProps } from "./types";
+
+const InputContainer = styled.input`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+
 
 function Input({
   id,
@@ -28,7 +38,8 @@ function Input({
       />
       {!!error && <ErrorText>{error}</ErrorText>}
     </InputWrapper>
+
   );
-}
+};
 
 export default Input;

@@ -2,7 +2,9 @@ import { type ReactNode } from "react";
 import { v4 } from "uuid";
 
 import { type Car } from "./types";
+
 import { CarCard, CardInfo, PageWrapper } from "./styles";
+
 
 function Homework_06() {
   const cars: Car[] = [

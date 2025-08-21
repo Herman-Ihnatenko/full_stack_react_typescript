@@ -1,3 +1,4 @@
+
 import styled from "@emotion/styled";
 
 interface InputComponentProps {
@@ -24,12 +25,14 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   gap: 4px;
   width: 100%;
+
 `;
 
 export const InputLabel = styled.label`
   font-size: 16px;
   color: hsl(0, 0%, 44%);
 `;
+
 
 export const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
@@ -44,6 +47,7 @@ export const InputComponent = styled.input<InputComponentProps>`
     color: #6f6f6f;
     font-size: 16px;
   }
+
 `;
 
 export const ErrorText = styled.div`
@@ -51,3 +55,4 @@ export const ErrorText = styled.div`
   font-size: 16px;
   color: #ff6868ff;
 `;
+
