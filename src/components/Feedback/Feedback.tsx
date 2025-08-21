@@ -15,7 +15,6 @@ function Feedback({
   onLike,
   resetResults,
 }: FeedbackProps) {
-
   return (
     <FeedbackWrapper>
       <FeedbackControl>

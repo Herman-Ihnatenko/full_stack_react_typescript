@@ -1,8 +1,7 @@
 import Button from "components/Button/Button";
 
 import { type CounterProps } from "./types";
-
-import "./styles.ts";
+import { CounterWrapper, Count, ButtonControl } from "./styles";
 
 function Counter({ onMinus, onPlus, count }: CounterProps) {
   return (
