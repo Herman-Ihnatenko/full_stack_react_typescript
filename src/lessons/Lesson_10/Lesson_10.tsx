@@ -65,7 +65,7 @@ const Lesson_10 = () => {
         <Input
           id="country"
           name="country"
-          placeholder="Enter Counry for searching uneversities"
+          placeholder="Enter Country for searching uneversities"
           label={
             <span style={{ fontSize: 30, fontWeight: "bold", color: "black" }}>
               Country
