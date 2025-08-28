@@ -8,6 +8,7 @@ import Lesson_08 from "lessons/Lesson_08/Lesson";
 import GlobalStyles from "styles/GlobalStyles";
 import Lesson_09 from "lessons/Lesson_09/Lesson_09";
 import Lesson_10 from "lessons/Lesson_10/Lesson_10";
+import Lesson_11 from "lessons/Lesson_11/Lesson_11";
 
 
 
@@ -23,7 +24,8 @@ function App() {
       {/* <Lesson_07 /> */}
       {/* <Lesson_08 /> */}
       {/* <Lesson_09 /> */}
-      <Lesson_10 />
+      {/* <Lesson_10 /> */}
+      <Lesson_11 />
     </div>
   );
 }

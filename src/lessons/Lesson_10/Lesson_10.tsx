@@ -35,6 +35,7 @@ import Input from "components/Input/Input";
 
 const Lesson_10 = () => {
   const [universities, setUniversities] = useState([]);
+  // лучше undefined
   const [error, setError] = useState<string | null>(null);
   const [country, setCountry] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
@@ -51,7 +52,7 @@ const Lesson_10 = () => {
         setUniversities(data.slice(0, 15));
         setError(null);
       }
-    } catch {
+    } catch (error) {
       setError("Some Network Error");
       setUniversities([]);
     } finally {
@@ -66,17 +67,19 @@ const Lesson_10 = () => {
           id="country"
           name="country"
           placeholder="Enter Country for searching uneversities"
-          label={
-            <span style={{ fontSize: 30, fontWeight: "bold", color: "black" }}>
-              Country
-            </span>
-          }
+          label="Country"
+            // Без стилистики
+            // <span style={{ fontSize: 30, fontWeight: "bold", color: "black" }}>
+            // {/* </span> */}
+          // Добавить тип к event OnChange
           onChange={(event: any) => setCountry(event.target.value)}
         />
+        
         <ContainerInside>
           {!!error && <Error>{error}</Error>}
           <div>
             {universities.map((university: any) => (
+              // Без стилистики, аналогично
               <Text style={{ color: "blue" }} key={v4()}>
                 <li style={{ padding: 8 }}>{university.name}</li>
               </Text>
@@ -95,3 +98,29 @@ const Lesson_10 = () => {
 };
 
 export default Lesson_10;
+
+// return (
+//     <PageWrapper>
+//       <Card>
+//       <Input
+//         id="country"
+//         name="country"
+//         placeholder="Enter Counry for searching uneversities"
+//         label="Country"
+//         onChange={(e) => setCountry(e.target.value)}
+//       />
+//         <Btn type="button" onClick={fetchUniversities}>
+//           Get Universities
+//         </Btn>
+//         <ContainerFacts>
+//       {!!error && <Text>{error}</Text>}
+//       {universities.map((university: any) => (
+//         <Text key={university.name}>{university.name}</Text>
+//       ))}
+//       </ContainerFacts>
+//       </Card>
+//     </PageWrapper>
+//   );
+// };
+
+// export default Lesson_10;
