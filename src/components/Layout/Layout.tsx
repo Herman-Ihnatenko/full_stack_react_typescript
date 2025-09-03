@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import {
   LayoutWrapper,
@@ -12,15 +12,20 @@ import {
   FooterLogo,
   FooterLink,
   FooterNavigation,
+  MainNavigation,
+  MainLink,
+  Title,
 } from "./styles";
 import { type LayoutProps } from "./types";
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const goToHomePage = () => {
     navigate("/");
   };
+  
   return (
     <LayoutWrapper>
       <Header>
@@ -67,9 +72,28 @@ function Layout({ children }: LayoutProps) {
           >
             Login
           </HeaderLink>
+          <HeaderLink
+            to="/clients"
+            style={({ isActive }) => ({
+              fontWeight: isActive ? "bold" : "normal",
+              textDecoration: isActive ? "underline" : "none",
+            })}
+          >
+            Clients
+          </HeaderLink>
         </NavigationContainer>
       </Header>
-      <Main>{children}</Main>
+      <Main>
+        {children}
+        {location.pathname === "/clients" && (
+          <MainNavigation>
+            <Title>Choose your company and read them.</Title>
+            <MainLink to="/clients/facebook">-Facebook</MainLink>
+            <MainLink to="/clients/google">-Google</MainLink>
+            <MainLink to="/clients/amazon">-Amazon</MainLink>
+          </MainNavigation>
+        )}
+      </Main>
       <Footer>
         <FooterLogo>
           <LogoImg
@@ -82,6 +106,7 @@ function Layout({ children }: LayoutProps) {
           <FooterLink to="/contactUs">Contact Us</FooterLink>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/login">Login</FooterLink>
+          <FooterLink to="/clients">Clients</FooterLink>
         </FooterNavigation>
       </Footer>
     </LayoutWrapper>

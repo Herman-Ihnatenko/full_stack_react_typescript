@@ -16,6 +16,9 @@ import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
 import Login from "pages/EmployeeApp/LogIn/LogIn";
 import About from "pages/EmployeeApp/About/About";
 import Layout from "components/Layout/Layout";
+import Google from "pages/Clients/Google/Google";
+import Facebook from "pages/Clients/Facebook/Facebook";
+import Amazon from "pages/Clients/Amazon/Amazon";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+        <Route path="/clients/facebook" element={<Facebook />} />
+        <Route path="/clients/google" element={<Google />} />
+        <Route path="/clients/amazon" element={<Amazon />} />
         </Routes>
       </Layout>
       {/* homeworks */}
