@@ -49,25 +49,6 @@ export const Main = styled.main`
   padding: 40px;
 `;
 
-export const MainNavigation = styled.nav`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`;
-
-export const MainLink = styled(Link)`
-  color: blue;
-  font-size: 28px;
-  font-weight: bold;
-  text-decoration: none;
-`;
-
-export const Title = styled.h1`
-  font-size: 36px;
-  font-weight: bold;
-  color: red;
-`;
-
 export const Footer = styled.footer`
   display: flex;
   align-items: center;
@@ -97,3 +78,8 @@ export const FooterLink = styled(Link)`
   font-size: 14px;
   font-weight: bold;
 `;
+
+export const navlinkProps = (isActive: boolean) => ({
+  fontWeight: isActive ? "bold" : "normal",
+  textDecoration: isActive ? "underline" : "none",
+});
