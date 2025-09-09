@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { v4 } from "uuid";
+
+import { NAVIGATION_MENU_ROUTES } from "constans/routes";
 
 import {
   LayoutWrapper,
@@ -12,6 +15,7 @@ import {
   FooterLogo,
   FooterLink,
   FooterNavigation,
+  navlinkProps
 } from "./styles";
 import { type LayoutProps } from "./types";
 
@@ -21,6 +25,34 @@ function Layout({ children }: LayoutProps) {
   const goToHomePage = () => {
     navigate("/");
   };
+
+  const footerLinks = Object.keys(NAVIGATION_MENU_ROUTES).map((route) => {
+    return (
+      <FooterLink
+        key={v4()}
+        to={
+          NAVIGATION_MENU_ROUTES[route as keyof typeof NAVIGATION_MENU_ROUTES]
+        }
+      >
+        {route}
+      </FooterLink>
+    );
+  });
+
+  const headerLinks = Object.keys(NAVIGATION_MENU_ROUTES).map((route) => {
+    return (
+      <HeaderLink
+        key={v4()}
+        to={
+          NAVIGATION_MENU_ROUTES[route as keyof typeof NAVIGATION_MENU_ROUTES]
+        }
+        style={({ isActive }) => navlinkProps(isActive)}
+      >
+        {route}
+      </HeaderLink>
+    );
+  });
+
   return (
     <LayoutWrapper>
       <Header>
@@ -30,44 +62,7 @@ function Layout({ children }: LayoutProps) {
             alt="Logo"
           />
         </Logo>
-        <NavigationContainer>
-          <HeaderLink
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to="/"
-          >
-            Home
-          </HeaderLink>
-          <HeaderLink
-            to="/contactUs"
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-          >
-            Contact Us
-          </HeaderLink>
-          <HeaderLink
-            to="/about"
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-          >
-            About
-          </HeaderLink>
-          <HeaderLink
-            to="/login"
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-          >
-            Login
-          </HeaderLink>
-        </NavigationContainer>
+        <NavigationContainer>{headerLinks}</NavigationContainer>
       </Header>
       <Main>{children}</Main>
       <Footer>
@@ -77,12 +72,7 @@ function Layout({ children }: LayoutProps) {
             alt="Logo"
           />
         </FooterLogo>
-        <FooterNavigation>
-          <FooterLink to="/">Home</FooterLink>
-          <FooterLink to="/contactUs">Contact Us</FooterLink>
-          <FooterLink to="/about">About</FooterLink>
-          <FooterLink to="/login">Login</FooterLink>
-        </FooterNavigation>
+        <FooterNavigation>{footerLinks}</FooterNavigation>
       </Footer>
     </LayoutWrapper>
   );
