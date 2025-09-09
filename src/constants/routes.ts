@@ -4,28 +4,26 @@ export interface ROUTES_DATA {
   ABOUT: string;
   LOGIN: string;
   CLIENTS: string;
-  APPLE: string;
+  AMAZON: string;
   GOOGLE: string;
   FACEBOOK: string;
   NOT_FOUND: string;
 }
-
 export const ROUTES: ROUTES_DATA = {
   HOME: "/",
   CONTACT_US: "/contactUs",
   ABOUT: "/about",
   LOGIN: "/login",
   CLIENTS: "/clients",
-  APPLE: "/clients/apple",
+  AMAZON: "/clients/amazon",
   GOOGLE: "/clients/facebook",
   FACEBOOK: "/clients/google",
   NOT_FOUND: "*",
 };
-
 export enum NAVIGATION_MENU_ROUTES {
   Home = "/",
-  Clients = "/clients",
-  "Contact Us" = "/contactUs",
+  Contact_Us = "/contactUs",
   About = "/about",
   Login = "/login",
+  Clients = "/clients",
 }

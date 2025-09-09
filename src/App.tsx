@@ -22,7 +22,7 @@ import Layout from "components/Layout/Layout";
 import Google from "pages/Clients/Google/Google";
 import Facebook from "pages/Clients/Facebook/Facebook";
 import Amazon from "pages/Clients/Amazon/Amazon";
-import {ROUTES} from "constans/routes";
+import {ROUTES} from "constants/routes";
 
 function App() {
   return (

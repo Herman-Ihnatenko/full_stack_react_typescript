@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 
-import { NAVIGATION_MENU_ROUTES } from "constans/routes";
+import { NAVIGATION_MENU_ROUTES } from "constants/routes";
 
 import {
   LayoutWrapper,

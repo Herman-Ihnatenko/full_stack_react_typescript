@@ -1,9 +1,10 @@
-import { MainContext } from "lessons/Lesson_13/components/Main/Main";
-import { useContext } from "react";
-import { ContentInfo, ContentTitle, ContentWrapper } from "./styles";
-
 // ШАГ 4: Импортируем useContext хук из библиотеки react
+import { useContext } from "react";
+
 import Button from "components/Button/Button";
+import { MainContext } from "lessons/Lesson_13/components/Main/Main";
+
+import { ContentInfo, ContentTitle, ContentWrapper } from "./styles";
 
 function Content() {
   // ШАГ 5: Получить доступ к данным хранящимся в контексте
