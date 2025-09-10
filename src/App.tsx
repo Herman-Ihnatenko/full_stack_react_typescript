@@ -15,21 +15,32 @@ import Lesson_10 from "lessons/Lesson_10/Lesson_10";
 import Lesson_11 from "lessons/Lesson_11/Lesson_11";
 import Lesson_13 from "lessons/Lesson_13/Lesson_13";
 /////////////////////////////////////////////
-import Home from "pages/EmployeeApp/Home/Home";
-import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
-import Login from "pages/EmployeeApp/LogIn/LogIn";
-import About from "pages/EmployeeApp/About/About";
-import Layout from "components/Layout/Layout";
-import Google from "pages/Clients/Google/Google";
-import Facebook from "pages/Clients/Facebook/Facebook";
-import Amazon from "pages/Clients/Amazon/Amazon";
-import {ROUTES} from "constants/routes";
-
+import Employees from "pages/UserApp/Employees/Employees";
+import CreateEmployee from "pages/UserApp/CreateEmployee/CreateEmployee";
+// import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
+// import Login from "pages/EmployeeApp/LogIn/LogIn";
+// import About from "pages/EmployeeApp/About/About";
+import Layout from "pages/UserApp/Layout/Layout";
+// import Google from "pages/Clients/Google/Google";
+// import Facebook from "pages/Clients/Facebook/Facebook";
+// import Amazon from "pages/Clients/Amazon/Amazon";
+import { ROUTES } from "pages/UserApp/constants/navMenuRoutes";
+/////////////////////////////////////////////
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <Layout>
+        <Routes>
+          <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
+          <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
+          {/* <Route path={ROUTES.NOT_FOUND} element={<Login />} /> */}
+          {/* <Route path={ROUTES.FACEBOOK} element={<Facebook />} />
+          <Route path={ROUTES.GOOGLE} element={<Google />} />
+          <Route path={ROUTES.AMAZON} element={<Amazon />} /> */}
+        </Routes>
+      </Layout>
       {/* <Layout>
         <Routes>
           <Route path={ROUTES.HOME} element={<Home />} />
@@ -46,7 +57,7 @@ function App() {
       {/* <Homework_07 /> */}
       {/* <Homework_09 /> */}
       {/* <Homework_11 /> */}
-      <Homework_13 />
+      {/* <Homework_13 /> */}
       {/* lessons */}
       {/* <Lesson_07 /> */}
       {/* <Lesson_08 /> */}
