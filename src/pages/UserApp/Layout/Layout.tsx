@@ -7,13 +7,9 @@ import {
   LayoutWrapper,
   Header,
   Main,
-  Footer,
   Logo,
   HeaderLink,
   NavigationContainer,
-  FooterLogo,
-  FooterLink,
-  FooterNavigation,
   navlinkProps
 } from "./styles";
 import { type LayoutProps } from "./types";
@@ -24,19 +20,6 @@ function Layout({ children }: LayoutProps) {
   const goToNavCreateEmployee = () => {
     navigate("/createEmployee");
   };
-
-  const footerLinks = Object.keys(NAV_MENU_ROUTES).map((route) => {
-    return (
-      <FooterLink
-        key={v4()}
-        to={
-          NAV_MENU_ROUTES[route as keyof typeof NAV_MENU_ROUTES]
-        }
-      >
-        {route}
-      </FooterLink>
-    );
-  });
 
   const headerLinks = Object.keys(NAV_MENU_ROUTES).map((route) => {
     return (
@@ -60,15 +43,6 @@ function Layout({ children }: LayoutProps) {
         <NavigationContainer>{headerLinks}</NavigationContainer>
       </Header>
       <Main>{children}</Main>
-      <Footer>
-        <FooterLogo>
-          {/* <LogoImg
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOGDYH2tzlcwZSDpjg0qRGgEHAxVhsKHFUg&s"
-            alt="Logo"
-          /> */}
-        </FooterLogo>
-        <FooterNavigation>{footerLinks}</FooterNavigation>
-      </Footer>
     </LayoutWrapper>
   );
 }
