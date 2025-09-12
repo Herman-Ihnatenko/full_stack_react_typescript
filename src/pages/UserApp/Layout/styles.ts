@@ -5,6 +5,7 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  background-color: #112233;
 `;
 
 export const Header = styled.header`
@@ -13,12 +14,13 @@ export const Header = styled.header`
   width: 100%;
   height: 100px;
   border-bottom: 1px solid black;
-  background-color: rgba(0, 10, 66, 0.9);
+  background-color: white;
   padding: 20px 40px;
-  color: white;
+  color: black;
 `;
 
 export const Logo = styled.div`
+  color: black;
   height: 100%;
   width: 80px;
   cursor: pointer;
@@ -32,7 +34,7 @@ export const NavigationContainer = styled.nav`
 `;
 
 export const HeaderLink = styled(NavLink)`
-  color: white;
+  color: black;
   font-size: 20px;
   font-weight: normal;
   text-decoration: none;

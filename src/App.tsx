@@ -35,10 +35,6 @@ function App() {
         <Routes>
           <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
           <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
-          {/* <Route path={ROUTES.NOT_FOUND} element={<Login />} /> */}
-          {/* <Route path={ROUTES.FACEBOOK} element={<Facebook />} />
-          <Route path={ROUTES.GOOGLE} element={<Google />} />
-          <Route path={ROUTES.AMAZON} element={<Amazon />} /> */}
         </Routes>
       </Layout>
       {/* <Layout>
