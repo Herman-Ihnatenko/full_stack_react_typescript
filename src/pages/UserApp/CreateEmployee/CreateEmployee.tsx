@@ -1,9 +1,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import {
   ContactUsContainer,
@@ -23,7 +24,10 @@ export const EmployeeContext = createContext<UserDataContext>({
 });
 
 function CreateEmployee() {
-  const [userData, setUserData] = useState<undefined | UserData>(undefined);
+  // const [userData, setUserData] = useState<undefined | UserData>(undefined);
+  const { setUserData } = useContext(EmployeeContext);
+
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     [EMPLOYEE_FORM_VALUES.NAME]: Yup.string()
@@ -55,14 +59,15 @@ function CreateEmployee() {
       setUserData({
         name: values.name.trim(),
         surname: values.surname.trim(),
-        age: (values.age),
-        jobPosition: (values.jobPosition),
+        age: values.age,
+        jobPosition: values.jobPosition,
       });
+      navigate("/employees");
     },
   });
 
   return (
-    <EmployeeContext.Provider value={{ userData, setUserData }}>
+    // <EmployeeContext.Provider value={{ userData, setUserData }}>
       <CreateEmployeeWrapper>
         <ContactUsContainer onSubmit={formik.handleSubmit}>
           {/* <Title>Create Employee</Title> */}
@@ -112,7 +117,7 @@ function CreateEmployee() {
           <Button onClick={formik.handleSubmit} name="Create" type="submit" />
         </ContactUsContainer>
       </CreateEmployeeWrapper>
-    </EmployeeContext.Provider>
+    // </EmployeeContext.Provider>
   );
 }
 

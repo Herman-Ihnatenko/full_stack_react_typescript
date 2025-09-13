@@ -15,6 +15,7 @@ import Lesson_10 from "lessons/Lesson_10/Lesson_10";
 import Lesson_11 from "lessons/Lesson_11/Lesson_11";
 import Lesson_13 from "lessons/Lesson_13/Lesson_13";
 /////////////////////////////////////////////
+import EmployeeMain from "pages/UserApp/EmployeeMain/EmployeeMain";
 import Employees from "pages/UserApp/Employees/Employees";
 import CreateEmployee from "pages/UserApp/CreateEmployee/CreateEmployee";
 // import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
@@ -32,12 +33,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
       <Layout>
-        <Routes>
-          <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
-          {/* отрисовывается при первом рендере*/}
-          <Route index element={<CreateEmployee />} />
-          <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
-        </Routes>
+        <EmployeeMain />
       </Layout>
       {/* <Layout>
         <Routes>

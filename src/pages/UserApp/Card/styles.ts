@@ -4,7 +4,7 @@ export const CardComponent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   min-width: 470px;
   min-height: fit-content;
   height: 150px;
@@ -15,12 +15,13 @@ export const CardComponent = styled.div`
 `;
 
 export const CardTitle = styled.p`
-  font-size: 20px;
-  color: rgb(18, 109, 162);
-  font-weight: bold;
+  font-size: 15px;
+  color: rgba(108, 108, 108, 1);
+
 `;
+
 export const CardInfo = styled.a`
-  font-size: 18px;
-  color: black;
-  text-decoration: none;
+  font-size: 29px;
+  color: #3d3c3cff;
+  font-weight: bold;
 `;
