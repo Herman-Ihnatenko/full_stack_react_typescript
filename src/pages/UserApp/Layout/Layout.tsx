@@ -10,7 +10,7 @@ import {
   Logo,
   HeaderLink,
   NavigationContainer,
-  navlinkProps
+  navlinkProps,
 } from "./styles";
 import { type LayoutProps } from "./types";
 
@@ -25,9 +25,7 @@ function Layout({ children }: LayoutProps) {
     return (
       <HeaderLink
         key={v4()}
-        to={
-          NAV_MENU_ROUTES[route as keyof typeof NAV_MENU_ROUTES]
-        }
+        to={NAV_MENU_ROUTES[route as keyof typeof NAV_MENU_ROUTES]}
         style={({ isActive }) => navlinkProps(isActive)}
       >
         {route}
@@ -38,8 +36,7 @@ function Layout({ children }: LayoutProps) {
   return (
     <LayoutWrapper>
       <Header>
-        <Logo onClick={goToNavCreateEmployee}> Cohort 54el-fs
-        </Logo>
+        <Logo onClick={goToNavCreateEmployee}> Cohort 54el-fs</Logo>
         <NavigationContainer>{headerLinks}</NavigationContainer>
       </Header>
       <Main>{children}</Main>

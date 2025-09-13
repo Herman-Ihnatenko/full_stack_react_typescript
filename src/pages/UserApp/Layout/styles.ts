@@ -5,11 +5,8 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-<<<<<<< HEAD
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-=======
   background-color: #112233;
->>>>>>> origin/main
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `;
 
 export const Header = styled.header`
@@ -18,24 +15,15 @@ export const Header = styled.header`
   width: 100%;
   height: 100px;
   border-bottom: 1px solid black;
-<<<<<<< HEAD
-  background-color: #faf9ff;
+  background-color: white;
   padding: 47px 81px;
-  font-size: 16px;
+  color: black;
 `;
 
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-=======
-  background-color: white;
-  padding: 20px 40px;
   color: black;
-`;
-
-export const Logo = styled.div`
-  color: black;
->>>>>>> origin/main
   height: 100%;
   width: 100px;
   cursor: pointer;
@@ -48,12 +36,8 @@ export const NavigationContainer = styled.nav`
   align-items: center;
 `;
 export const HeaderLink = styled(NavLink)`
-<<<<<<< HEAD
-  font-size: 28px;
-=======
   color: black;
   font-size: 20px;
->>>>>>> origin/main
   font-weight: normal;
   text-decoration: none;
   color: #000000;

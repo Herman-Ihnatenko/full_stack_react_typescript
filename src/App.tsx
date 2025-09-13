@@ -34,6 +34,8 @@ function App() {
       <Layout>
         <Routes>
           <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
+          {/* отрисовывается при первом рендере*/}
+          <Route index element={<CreateEmployee />} />
           <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
         </Routes>
       </Layout>

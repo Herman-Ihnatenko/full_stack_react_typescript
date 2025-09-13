@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 
 export const CreateEmployeeWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex: 1;
   color: black;
 `;
 
-export const ContactUsContainer = styled.div`
+export const ContactUsContainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 590px;
@@ -29,5 +30,5 @@ export const Title = styled.p`
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 `;
