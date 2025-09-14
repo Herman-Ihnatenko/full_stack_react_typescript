@@ -4,17 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
 import {
-  ContactUsContainer,
+  CreateEmployeeContainer,
   CreateEmployeeWrapper,
   InputsContainer,
 } from "./styles";
 
 import {
   type UserDataContext,
-  type UserData,
   EMPLOYEE_FORM_VALUES,
 } from "./types";
 
@@ -24,7 +23,6 @@ export const EmployeeContext = createContext<UserDataContext>({
 });
 
 function CreateEmployee() {
-  // const [userData, setUserData] = useState<undefined | UserData>(undefined);
   const { setUserData } = useContext(EmployeeContext);
 
   const navigate = useNavigate();
@@ -39,8 +37,8 @@ function CreateEmployee() {
       .max(15, "Surname must be no more than 15 characters")
       .required("Surname is required"),
     [EMPLOYEE_FORM_VALUES.AGE]: Yup.string()
-      .min(1, "Age must be at least 1")
-      .max(120, "Age must be no more than 120")
+      .min(1, "Age must be at least 1 character")
+      .max(3, "Age must be no more than 3 character")
       .required("Age is required"),
     [EMPLOYEE_FORM_VALUES["JOB POSITION"]]: Yup.string()
       .min(2, "Job Position must be at least 2 characters")
@@ -67,10 +65,8 @@ function CreateEmployee() {
   });
 
   return (
-    // <EmployeeContext.Provider value={{ userData, setUserData }}>
       <CreateEmployeeWrapper>
-        <ContactUsContainer onSubmit={formik.handleSubmit}>
-          {/* <Title>Create Employee</Title> */}
+        <CreateEmployeeContainer onSubmit={formik.handleSubmit}>
           <InputsContainer>
             <Input
               id="name-id"
@@ -109,15 +105,12 @@ function CreateEmployee() {
               type="text"
               placeholder="QA"
               label="Job Position"
-              // value={formik.values[EMPLOYEE_FORM_VALUES["JOB POSITION"]]}
               onChange={formik.handleChange}
-              // error={formik.errors[EMPLOYEE_FORM_VALUES.AGE]}
             />
           </InputsContainer>
           <Button onClick={formik.handleSubmit} name="Create" type="submit" />
-        </ContactUsContainer>
+        </CreateEmployeeContainer>
       </CreateEmployeeWrapper>
-    // </EmployeeContext.Provider>
   );
 }
 

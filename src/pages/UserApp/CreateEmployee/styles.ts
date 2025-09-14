@@ -8,7 +8,7 @@ export const CreateEmployeeWrapper = styled.div`
   color: black;
 `;
 
-export const ContactUsContainer = styled.form`
+export const CreateEmployeeContainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 590px;
