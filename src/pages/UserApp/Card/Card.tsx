@@ -1,16 +1,23 @@
-import { CardComponent, CardTitle, CardInfo } from "./styles";
-import { type CardProps } from "./types";
+import { CardComponent, CardInfo, CardTitle } from "./styles";
 import { useContext } from "react";
-import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee"
+import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
 
-function Card({ name = "", surname = "", age = "", jobPosition = "" }: CardProps) {
-    const {userData, setUserData} = useContext(EmployeeContext)
+function Card() {
+  const { userData, setUserData } = useContext(EmployeeContext);
+
   return (
     <CardComponent>
-      <CardInfo>Name{name} </CardInfo>
-      <CardInfo>Surname{surname}</CardInfo>
-      <CardInfo>Age{age}</CardInfo>
-      <CardInfo>Job Position{jobPosition}</CardInfo>
+     <CardTitle>Name</CardTitle>
+  <CardInfo>{userData?.name}</CardInfo>
+
+  <CardTitle>Surname</CardTitle>
+  <CardInfo>{userData?.surname}</CardInfo>
+
+  <CardTitle>Age</CardTitle>
+  <CardInfo>{userData?.age}</CardInfo>
+
+  <CardTitle>Job Position</CardTitle>
+  <CardInfo>{userData?.jobPosition}</CardInfo>
       {/* {webPage.map((page: string) => (
         <CardInfo href={page}>{page}</CardInfo>
       ))} */}
@@ -18,4 +25,3 @@ function Card({ name = "", surname = "", age = "", jobPosition = "" }: CardProps
   );
 }
 export default Card;
-

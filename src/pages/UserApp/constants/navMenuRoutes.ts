@@ -13,4 +13,6 @@ export const ROUTES: ROUTES_DATA = {
 export enum NAV_MENU_ROUTES {
   "Create Employee" = "/createEmployee",
   Employees = "/employees",
-}
+};
+
+

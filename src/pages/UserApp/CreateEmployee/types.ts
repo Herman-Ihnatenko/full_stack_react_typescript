@@ -8,8 +8,9 @@ export enum EMPLOYEE_FORM_VALUES {
 }
 
 export interface UserData {
-  fullName: string;
-  age: number;
+  name: string;
+  surname: string;
+  age: string;
   jobPosition: string;
 }
 
