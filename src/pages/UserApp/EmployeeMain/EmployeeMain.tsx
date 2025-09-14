@@ -1,17 +1,17 @@
-import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import CreateEmployee from "../CreateEmployee/CreateEmployee";
 import Employees from "../Employees/Employees";
-import { EmployeeContext } from "../CreateEmployee/CreateEmployee";
+import { EmployeeContext } from "./EmployeeContext";
 import { type UserData } from "../CreateEmployee/types";
 import { ROUTES } from "../constants/navMenuRoutes";
 
 function EmployeeMain() {
-  const [userData, setUserData] = useState<UserData | undefined>(undefined);
+  const [employees, setEmployees] = useState<UserData[]>([]);
 
   return (
-    <EmployeeContext.Provider value={{ userData, setUserData }}>
+    <EmployeeContext.Provider value={{ employees, setEmployees }}>
       <Routes>
         <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
         <Route path={ROUTES.EMPLOYEES} element={<Employees />} />

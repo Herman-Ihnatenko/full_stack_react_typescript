@@ -2,9 +2,10 @@ import styled from "@emotion/styled";
 
 export const EmployeesWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 40px;
   color: black;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
+  margin-left: 100px;
 `;
