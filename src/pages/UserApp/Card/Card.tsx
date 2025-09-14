@@ -1,26 +1,36 @@
-import { CardComponent, CardInfo, CardTitle } from "./styles";
+import {
+  CardComponent,
+  CardInfo,
+  CardTitle,
+  CardInfoContainer,
+} from "./styles";
 import { useContext } from "react";
 import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
 
 function Card() {
-  const { userData, setUserData } = useContext(EmployeeContext);
+  const { userData } = useContext(EmployeeContext);
 
   return (
     <CardComponent>
-     <CardTitle>Name</CardTitle>
-  <CardInfo>{userData?.name}</CardInfo>
+      <CardInfoContainer>
+        <CardTitle>Name</CardTitle>
+        <CardInfo>{userData?.name}</CardInfo>
+      </CardInfoContainer>
 
-  <CardTitle>Surname</CardTitle>
-  <CardInfo>{userData?.surname}</CardInfo>
+      <CardInfoContainer>
+        <CardTitle>Surname</CardTitle>
+        <CardInfo>{userData?.surname}</CardInfo>
+      </CardInfoContainer>
 
-  <CardTitle>Age</CardTitle>
-  <CardInfo>{userData?.age}</CardInfo>
+      <CardInfoContainer>
+        <CardTitle>Age</CardTitle>
+        <CardInfo>{userData?.age}</CardInfo>
+      </CardInfoContainer>
 
-  <CardTitle>Job Position</CardTitle>
-  <CardInfo>{userData?.jobPosition}</CardInfo>
-      {/* {webPage.map((page: string) => (
-        <CardInfo href={page}>{page}</CardInfo>
-      ))} */}
+      <CardInfoContainer>
+        <CardTitle>Job Position</CardTitle>
+        <CardInfo>{userData?.jobPosition}</CardInfo>
+      </CardInfoContainer>
     </CardComponent>
   );
 }
