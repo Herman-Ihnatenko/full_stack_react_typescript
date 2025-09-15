@@ -1,37 +1,33 @@
-import {
-  CardComponent,
-  CardInfo,
-  CardTitle,
-  CardInfoContainer,
-} from "./styles";
+import { CardComponent, CardInfo, CardTitle, CardInfoContainer } from "./styles";
+import type { UserData } from "../CreateEmployee/types";
+import Button from "components/Button/Button";
 import { useContext } from "react";
 import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
 
-function Card() {
-  const { userData } = useContext(EmployeeContext);
+interface CardProps {
+  userData: UserData;
+  onDelete?: () => void;
+}
 
+
+function Card({ userData, onDelete }: CardProps) {
   return (
     <CardComponent>
-      <CardInfoContainer>
-        <CardTitle>Name</CardTitle>
-        <CardInfo>{userData?.name}</CardInfo>
-      </CardInfoContainer>
+      <CardTitle>Name</CardTitle>
+      <CardInfo>{userData.name}</CardInfo>
+      <CardTitle>Surname</CardTitle>
+      <CardInfo>{userData.surname}</CardInfo>
+      <CardTitle>Age</CardTitle>
+      <CardInfo>{userData.age}</CardInfo>
+      <CardTitle>Job Position</CardTitle>
+      <CardInfo>{userData.jobPosition}</CardInfo>
+          {/* Только если передана onDelete — рендерим кнопку */}
+      {/* {onDelete && ( */}
+      <Button onClick={onDelete} name="Delete" type="submit"
+  isRed/>
 
-      <CardInfoContainer>
-        <CardTitle>Surname</CardTitle>
-        <CardInfo>{userData?.surname}</CardInfo>
-      </CardInfoContainer>
-
-      <CardInfoContainer>
-        <CardTitle>Age</CardTitle>
-        <CardInfo>{userData?.age}</CardInfo>
-      </CardInfoContainer>
-
-      <CardInfoContainer>
-        <CardTitle>Job Position</CardTitle>
-        <CardInfo>{userData?.jobPosition}</CardInfo>
-      </CardInfoContainer>
     </CardComponent>
   );
 }
+
 export default Card;

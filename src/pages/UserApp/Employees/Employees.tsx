@@ -1,15 +1,27 @@
-import { EmployeesWrapper } from "./styles";
-import Card from "pages/UserApp/Card/Card";
 import { useContext } from "react";
-import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
+import { EmployeeContext } from "../EmployeeMain/EmployeeContext";
+import Card from "pages/UserApp/Card/Card";
 
+import { EmployeesWrapper } from "./styles";
 
 function Employees() {
-   const { userData } = useContext(EmployeeContext);
+  const { employees, setEmployees } = useContext(EmployeeContext);
+
+  const deleteEmployee = (index: number) => {
+    const updated = employees.filter((_, i) => i !== index);
+    setEmployees(updated);
+  };
 
   return (
     <EmployeesWrapper>
-       {userData && <Card/>}
+      {employees.map((employee, index) => (
+        <Card
+          key={index}
+          userData={employee}
+          onDelete={() => deleteEmployee(index)}
+        />
+      ))}
+
     </EmployeesWrapper>
       )
 }
