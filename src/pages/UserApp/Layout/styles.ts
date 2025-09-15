@@ -24,12 +24,12 @@ export const Header = styled.header`
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  color: black;
+  color: darkblue;
   height: 100%;
-  width: 100px;
+  width:fit-content;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 34px;
 `;
 
 export const NavigationContainer = styled.nav`
