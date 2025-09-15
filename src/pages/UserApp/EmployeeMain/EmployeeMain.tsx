@@ -17,6 +17,7 @@ function EmployeeMain() {
       <Routes>
         <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
         <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
+        <Route index element={<CreateEmployee />} />
       </Routes>
     </EmployeeContext.Provider>
   );
