@@ -23,8 +23,8 @@ export const EmployeeContext = createContext<UserDataContext>({
 });
 
 function CreateEmployee() {
-  const { setUserData } = useContext(EmployeeContext);
 
+  const { setUserData } = useContext(EmployeeContext);
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
