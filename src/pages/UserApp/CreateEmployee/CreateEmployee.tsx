@@ -5,16 +5,30 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
+import { createContext, useContext } from "react";
+
 import {
+  CreateEmployeeContainer,
+
   CreateEmployeeWrapper,
   ContactUsContainer,
   InputsContainer,
 } from "./styles";
-import { type UserData, EMPLOYEE_FORM_VALUES } from "./types";
-import { EmployeeContext } from "../EmployeeMain/EmployeeContext";
+
+import {
+  type UserDataContext,
+  EMPLOYEE_FORM_VALUES,
+} from "./types";
+
+export const EmployeeContext = createContext<UserDataContext>({
+  userData: undefined,
+  setUserData: () => {},
+});
 
 function CreateEmployee() {
-  const { setEmployees } = useContext(EmployeeContext);
+
+  const { setUserData } = useContext(EmployeeContext);
+
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
@@ -27,8 +41,8 @@ function CreateEmployee() {
       .max(15, "Surname must be no more than 15 characters")
       .required("Surname is required"),
     [EMPLOYEE_FORM_VALUES.AGE]: Yup.string()
-      .min(1, "Age must be at least 1")
-      .max(120, "Age must be no more than 120")
+      .min(1, "Age must be at least 1 character")
+      .max(3, "Age must be no more than 3 character")
       .required("Age is required"),
     [EMPLOYEE_FORM_VALUES["JOB POSITION"]]: Yup.string()
       .min(2, "Job Position must be at least 2 characters")
@@ -56,62 +70,54 @@ function CreateEmployee() {
   });
 
   return (
-    <CreateEmployeeWrapper>
-      <ContactUsContainer onSubmit={formik.handleSubmit}>
-        <InputsContainer>
-          <Input
-            id="name"
-            name={EMPLOYEE_FORM_VALUES.NAME}
-            type="text"
-            placeholder="John"
-            label="Name*"
-            value={formik.values[EMPLOYEE_FORM_VALUES.NAME]}
-            onChange={formik.handleChange}
-            error={
-            formik.errors[EMPLOYEE_FORM_VALUES.NAME]
-            }
-          />
-          <Input
-            id="surname"
-            name={EMPLOYEE_FORM_VALUES.SURNAME}
-            type="text"
-            placeholder="Johnson"
-            label="Surname*"
-            value={formik.values[EMPLOYEE_FORM_VALUES.SURNAME]}
-            onChange={formik.handleChange}
-            error={
-              formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]
-            }
-          />
-          <Input
-            id="age"
-            name={EMPLOYEE_FORM_VALUES.AGE}
-            type="text"
-            placeholder="25"
-            label="Age*"
-            value={formik.values[EMPLOYEE_FORM_VALUES.AGE]}
-            onChange={formik.handleChange}
-            error={
-              formik.errors[EMPLOYEE_FORM_VALUES.AGE]
-            }
-          />
-          <Input
-            id="job-position"
-            name={EMPLOYEE_FORM_VALUES["JOB POSITION"]}
-            type="text"
-            placeholder="QA"
-            label="Job Position"
-            value={formik.values[EMPLOYEE_FORM_VALUES["JOB POSITION"]]}
-            onChange={formik.handleChange}
-            error={
-              formik.errors[EMPLOYEE_FORM_VALUES["JOB POSITION"]]
-            }
-          />
-        </InputsContainer>
 
-        <Button onClick={formik.handleSubmit} name="Create" type="submit" />
-      </ContactUsContainer>
-    </CreateEmployeeWrapper>
+      <CreateEmployeeWrapper>
+        <CreateEmployeeContainer onSubmit={formik.handleSubmit}>
+          <InputsContainer>
+            <Input
+              id="name-id"
+              name={EMPLOYEE_FORM_VALUES.NAME}
+              type="text"
+              placeholder="John"
+              label="Name*"
+              value={formik.values[EMPLOYEE_FORM_VALUES.NAME]}
+              onChange={formik.handleChange}
+              error={formik.errors[EMPLOYEE_FORM_VALUES.NAME]}
+            />
+            <Input
+              id="surname-id"
+              name={EMPLOYEE_FORM_VALUES.SURNAME}
+              type="text"
+              placeholder="Johnson"
+              label="Surname*"
+              value={formik.values[EMPLOYEE_FORM_VALUES.SURNAME]}
+              onChange={formik.handleChange}
+              error={formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]}
+            />
+            <Input
+              id="age-id"
+              name={EMPLOYEE_FORM_VALUES.AGE}
+              type="text"
+              placeholder="25"
+              label="Age*"
+              value={formik.values[EMPLOYEE_FORM_VALUES.AGE]}
+              onChange={formik.handleChange}
+              error={formik.errors[EMPLOYEE_FORM_VALUES.AGE]}
+            />
+
+            <Input
+              id="job-position-id"
+              name={EMPLOYEE_FORM_VALUES["JOB POSITION"]}
+              type="text"
+              placeholder="QA"
+              label="Job Position"
+              onChange={formik.handleChange}
+            />
+          </InputsContainer>
+          <Button onClick={formik.handleSubmit} name="Create" type="submit" />
+        </CreateEmployeeContainer>
+      </CreateEmployeeWrapper>
+
   );
 }
 

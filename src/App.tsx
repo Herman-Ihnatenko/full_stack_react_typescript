@@ -25,7 +25,6 @@ import Layout from "pages/UserApp/Layout/Layout";
 // import Google from "pages/Clients/Google/Google";
 // import Facebook from "pages/Clients/Facebook/Facebook";
 // import Amazon from "pages/Clients/Amazon/Amazon";
-import { ROUTES } from "pages/UserApp/constants/navMenuRoutes";
 /////////////////////////////////////////////
 
 function App() {

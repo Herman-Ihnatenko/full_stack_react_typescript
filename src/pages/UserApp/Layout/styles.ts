@@ -18,15 +18,18 @@ export const Header = styled.header`
   background-color: white;
   padding: 47px 81px;
   color: black;
+  border: 2px solid black;
 `;
 
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  color: black;
+  color: darkblue;
   height: 100%;
-  width: 100px;
+  width:fit-content;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 34px;
 `;
 
 export const NavigationContainer = styled.nav`
@@ -37,7 +40,7 @@ export const NavigationContainer = styled.nav`
 `;
 export const HeaderLink = styled(NavLink)`
   color: black;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: normal;
   text-decoration: none;
   color: #000000;

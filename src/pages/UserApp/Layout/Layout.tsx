@@ -17,6 +17,7 @@ import { type LayoutProps } from "./types";
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
 
+
   const goToNavCreateEmployee = () => {
     navigate("/createEmployee");
   };

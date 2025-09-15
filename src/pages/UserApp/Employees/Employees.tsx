@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { EmployeeContext } from "../EmployeeMain/EmployeeContext";
 import Card from "pages/UserApp/Card/Card";
+
 import { EmployeesWrapper } from "./styles";
 
 function Employees() {
@@ -20,8 +21,9 @@ function Employees() {
           onDelete={() => deleteEmployee(index)}
         />
       ))}
+
     </EmployeesWrapper>
-  );
+      )
 }
 
 export default Employees;

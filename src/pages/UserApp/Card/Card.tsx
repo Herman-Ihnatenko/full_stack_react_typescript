@@ -1,11 +1,14 @@
-import { CardComponent, CardInfo, CardTitle } from "./styles";
+import { CardComponent, CardInfo, CardTitle, CardInfoContainer } from "./styles";
 import type { UserData } from "../CreateEmployee/types";
 import Button from "components/Button/Button";
+import { useContext } from "react";
+import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
 
 interface CardProps {
   userData: UserData;
   onDelete?: () => void;
 }
+
 
 function Card({ userData, onDelete }: CardProps) {
   return (
@@ -22,6 +25,7 @@ function Card({ userData, onDelete }: CardProps) {
       {/* {onDelete && ( */}
       <Button onClick={onDelete} name="Delete" type="submit"
   isRed/>
+
     </CardComponent>
   );
 }
