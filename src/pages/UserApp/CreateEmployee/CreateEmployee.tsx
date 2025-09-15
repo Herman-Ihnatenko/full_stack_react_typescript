@@ -18,10 +18,21 @@ function CreateEmployee() {
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
-    [EMPLOYEE_FORM_VALUES.NAME]: Yup.string().required("Required"),
-    [EMPLOYEE_FORM_VALUES.SURNAME]: Yup.string().required("Required"),
-    [EMPLOYEE_FORM_VALUES.AGE]: Yup.string().required("Required"),
-    [EMPLOYEE_FORM_VALUES["JOB POSITION"]]: Yup.string(),
+    [EMPLOYEE_FORM_VALUES.NAME]: Yup.string()
+      .min(2, "Name must be at least 2 characters")
+      .max(50, "Name must be no more than 50 characters")
+      .required("Name is required"),
+    [EMPLOYEE_FORM_VALUES.SURNAME]: Yup.string()
+      .min(2, "Surname must be at least 2 characters")
+      .max(15, "Surname must be no more than 15 characters")
+      .required("Surname is required"),
+    [EMPLOYEE_FORM_VALUES.AGE]: Yup.string()
+      .min(1, "Age must be at least 1")
+      .max(120, "Age must be no more than 120")
+      .required("Age is required"),
+    [EMPLOYEE_FORM_VALUES["JOB POSITION"]]: Yup.string()
+      .min(2, "Job Position must be at least 2 characters")
+      .max(30, "Job Position must be no more than 30 characters"),
   });
 
   const formik = useFormik({
@@ -36,8 +47,8 @@ function CreateEmployee() {
       const newEmployee: UserData = {
         name: values.name.trim(),
         surname: values.surname.trim(),
-        age: values.age,
-        jobPosition: values.jobPosition,
+        age: values.age.trim(),
+        jobPosition: values.jobPosition.trim(),
       };
       setEmployees((previousArray) => [...previousArray, newEmployee]);
       navigate("/employees");
@@ -56,7 +67,9 @@ function CreateEmployee() {
             label="Name*"
             value={formik.values[EMPLOYEE_FORM_VALUES.NAME]}
             onChange={formik.handleChange}
-            error={formik.errors[EMPLOYEE_FORM_VALUES.NAME]}
+            error={
+            formik.errors[EMPLOYEE_FORM_VALUES.NAME]
+            }
           />
           <Input
             id="surname"
@@ -66,7 +79,9 @@ function CreateEmployee() {
             label="Surname*"
             value={formik.values[EMPLOYEE_FORM_VALUES.SURNAME]}
             onChange={formik.handleChange}
-            error={formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]}
+            error={
+              formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]
+            }
           />
           <Input
             id="age"
@@ -76,7 +91,9 @@ function CreateEmployee() {
             label="Age*"
             value={formik.values[EMPLOYEE_FORM_VALUES.AGE]}
             onChange={formik.handleChange}
-            error={formik.errors[EMPLOYEE_FORM_VALUES.AGE]}
+            error={
+              formik.errors[EMPLOYEE_FORM_VALUES.AGE]
+            }
           />
           <Input
             id="job-position"
@@ -86,9 +103,12 @@ function CreateEmployee() {
             label="Job Position"
             value={formik.values[EMPLOYEE_FORM_VALUES["JOB POSITION"]]}
             onChange={formik.handleChange}
-            error={formik.errors[EMPLOYEE_FORM_VALUES["JOB POSITION"]]}
+            error={
+              formik.errors[EMPLOYEE_FORM_VALUES["JOB POSITION"]]
+            }
           />
         </InputsContainer>
+
         <Button onClick={formik.handleSubmit} name="Create" type="submit" />
       </ContactUsContainer>
     </CreateEmployeeWrapper>
