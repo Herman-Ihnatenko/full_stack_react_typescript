@@ -5,7 +5,7 @@ export const EmployeesWrapper = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   color: black;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin-left: 100px;
 `;

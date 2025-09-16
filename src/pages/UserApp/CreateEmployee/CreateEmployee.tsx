@@ -5,30 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
-import { createContext, useContext } from "react";
 
 import {
   CreateEmployeeContainer,
-
   CreateEmployeeWrapper,
-  ContactUsContainer,
   InputsContainer,
 } from "./styles";
 
-import {
-  type UserDataContext,
-  EMPLOYEE_FORM_VALUES,
-} from "./types";
-
-export const EmployeeContext = createContext<UserDataContext>({
-  userData: undefined,
-  setUserData: () => {},
-});
+import { type UserData, EMPLOYEE_FORM_VALUES } from "./types";
+import { EmployeeContext } from "../EmployeeMain/EmployeeContext";
 
 function CreateEmployee() {
-
-  const { setUserData } = useContext(EmployeeContext);
-
+  const { setEmployees } = useContext(EmployeeContext);
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
@@ -70,54 +58,52 @@ function CreateEmployee() {
   });
 
   return (
+    <CreateEmployeeWrapper>
+      <CreateEmployeeContainer onSubmit={formik.handleSubmit}>
+        <InputsContainer>
+          <Input
+            id="name-id"
+            name={EMPLOYEE_FORM_VALUES.NAME}
+            type="text"
+            placeholder="John"
+            label="Name*"
+            value={formik.values[EMPLOYEE_FORM_VALUES.NAME]}
+            onChange={formik.handleChange}
+            error={formik.errors[EMPLOYEE_FORM_VALUES.NAME]}
+          />
+          <Input
+            id="surname-id"
+            name={EMPLOYEE_FORM_VALUES.SURNAME}
+            type="text"
+            placeholder="Johnson"
+            label="Surname*"
+            value={formik.values[EMPLOYEE_FORM_VALUES.SURNAME]}
+            onChange={formik.handleChange}
+            error={formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]}
+          />
+          <Input
+            id="age-id"
+            name={EMPLOYEE_FORM_VALUES.AGE}
+            type="text"
+            placeholder="25"
+            label="Age*"
+            value={formik.values[EMPLOYEE_FORM_VALUES.AGE]}
+            onChange={formik.handleChange}
+            error={formik.errors[EMPLOYEE_FORM_VALUES.AGE]}
+          />
 
-      <CreateEmployeeWrapper>
-        <CreateEmployeeContainer onSubmit={formik.handleSubmit}>
-          <InputsContainer>
-            <Input
-              id="name-id"
-              name={EMPLOYEE_FORM_VALUES.NAME}
-              type="text"
-              placeholder="John"
-              label="Name*"
-              value={formik.values[EMPLOYEE_FORM_VALUES.NAME]}
-              onChange={formik.handleChange}
-              error={formik.errors[EMPLOYEE_FORM_VALUES.NAME]}
-            />
-            <Input
-              id="surname-id"
-              name={EMPLOYEE_FORM_VALUES.SURNAME}
-              type="text"
-              placeholder="Johnson"
-              label="Surname*"
-              value={formik.values[EMPLOYEE_FORM_VALUES.SURNAME]}
-              onChange={formik.handleChange}
-              error={formik.errors[EMPLOYEE_FORM_VALUES.SURNAME]}
-            />
-            <Input
-              id="age-id"
-              name={EMPLOYEE_FORM_VALUES.AGE}
-              type="text"
-              placeholder="25"
-              label="Age*"
-              value={formik.values[EMPLOYEE_FORM_VALUES.AGE]}
-              onChange={formik.handleChange}
-              error={formik.errors[EMPLOYEE_FORM_VALUES.AGE]}
-            />
-
-            <Input
-              id="job-position-id"
-              name={EMPLOYEE_FORM_VALUES["JOB POSITION"]}
-              type="text"
-              placeholder="QA"
-              label="Job Position"
-              onChange={formik.handleChange}
-            />
-          </InputsContainer>
-          <Button onClick={formik.handleSubmit} name="Create" type="submit" />
-        </CreateEmployeeContainer>
-      </CreateEmployeeWrapper>
-
+          <Input
+            id="job-position-id"
+            name={EMPLOYEE_FORM_VALUES["JOB POSITION"]}
+            type="text"
+            placeholder="QA"
+            label="Job Position"
+            onChange={formik.handleChange}
+          />
+        </InputsContainer>
+        <Button onClick={formik.handleSubmit} name="Create" type="submit" />
+      </CreateEmployeeContainer>
+    </CreateEmployeeWrapper>
   );
 }
 

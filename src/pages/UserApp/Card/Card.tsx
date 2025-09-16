@@ -1,14 +1,11 @@
-import { CardComponent, CardInfo, CardTitle, CardInfoContainer } from "./styles";
+import { CardComponent, CardInfo, CardTitle } from "./styles";
 import type { UserData } from "../CreateEmployee/types";
 import Button from "components/Button/Button";
-import { useContext } from "react";
-import { EmployeeContext } from "pages/UserApp/CreateEmployee/CreateEmployee";
 
 interface CardProps {
   userData: UserData;
   onDelete?: () => void;
 }
-
 
 function Card({ userData, onDelete }: CardProps) {
   return (
@@ -19,13 +16,14 @@ function Card({ userData, onDelete }: CardProps) {
       <CardInfo>{userData.surname}</CardInfo>
       <CardTitle>Age</CardTitle>
       <CardInfo>{userData.age}</CardInfo>
-      <CardTitle>Job Position</CardTitle>
-      <CardInfo>{userData.jobPosition}</CardInfo>
-          {/* Только если передана onDelete — рендерим кнопку */}
-      {/* {onDelete && ( */}
-      <Button onClick={onDelete} name="Delete" type="submit"
-  isRed/>
-
+      {/* Условный рендеринг */}
+      {userData.jobPosition && (
+        <>
+          <CardTitle>Job Position</CardTitle>
+          <CardInfo>{userData.jobPosition}</CardInfo>
+        </>
+      )}
+      <Button onClick={onDelete} name="Delete" type="submit" isRed />
     </CardComponent>
   );
 }
