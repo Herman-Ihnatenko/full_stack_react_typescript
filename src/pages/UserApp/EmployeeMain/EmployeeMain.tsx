@@ -10,14 +10,11 @@ import { ROUTES } from "../constants/navMenuRoutes";
 function EmployeeMain() {
   const [employees, setEmployees] = useState<UserData[]>([]);
 
-  
-
   return (
     <EmployeeContext.Provider value={{ employees, setEmployees }}>
       <Routes>
         <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
         <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
-        <Route index element={<CreateEmployee />} />
       </Routes>
     </EmployeeContext.Provider>
   );

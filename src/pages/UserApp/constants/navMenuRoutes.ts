@@ -5,13 +5,13 @@ export interface ROUTES_DATA {
 }
 
 export const ROUTES: ROUTES_DATA = {
-  CREATE_EMPLOYEE: "/createEmployee",
+  CREATE_EMPLOYEE: "/",
   EMPLOYEES: "/employees",
   NOT_FOUND: "*",
 };
 
 export enum NAV_MENU_ROUTES {
-  "Create Employee" = "/createEmployee",
+  "Create Employee" = "/",
   Employees = "/employees",
 };
 
